@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class PlayerRotation : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    private Vector3 objectPosition;
+    private Quaternion rotation = Quaternion.identity;
+    private float rotate;
+
+    void FixedUpdate()
+    {
+        rotation.eulerAngles = new Vector3(transform.rotation.x, rotate, transform.rotation.z);
+        transform.rotation = rotation;
+    }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public float GetSetRotation
+    {
+        get { return rotate; }
+        set { rotate = value; }
+    }
 }
