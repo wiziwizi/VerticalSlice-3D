@@ -14,6 +14,10 @@ public class Timer : MonoBehaviour {
 	}
 
 	private IEnumerator Clock () {
+		if (_seconds == 0 && _minutes !=0) {
+			_seconds = 60;
+			_minutes -= 1;
+		}
 		if (_seconds > 0) {
 			_seconds -= 1;
 			if (!(_minutes < 10) && _seconds < 10) {
@@ -31,9 +35,6 @@ public class Timer : MonoBehaviour {
 				yield return new WaitForSeconds (1);
 				StartCoroutine (Clock ());
 		}
-		if (_seconds == 0 && _minutes !=0) {
-			_seconds = 60;
-			_minutes -= 1;
-		}
+
 	}
 }
