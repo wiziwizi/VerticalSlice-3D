@@ -9,7 +9,8 @@ public class SteeringBehaviour : MonoBehaviour {
     private Vector3 _target;
     [SerializeField]
     private Vector3 _speed = new Vector3(10, 0, 20); //x = minimal y = current z = maximum
-    private float _mass = 50;
+    [SerializeField]
+    private float _mass;
     private Vector3 _position = new Vector3();
     private Vector3 _velocity = new Vector3(0,1,0);
     [SerializeField]

@@ -4,19 +4,26 @@ using UnityEngine;
 
 public class PlayerRotation : MonoBehaviour {
 
-    private Vector3 objectPosition;
-    private Quaternion rotation = Quaternion.identity;
-    private float rotate;
+    private Vector3 _objectPosition;
+    private Quaternion _rotation = Quaternion.identity;
+    private float _rotateHorizontal;
+    private float _rotateVertical;
 
     void FixedUpdate()
     {
-        rotation.eulerAngles = new Vector3(transform.rotation.x, rotate, transform.rotation.z);
-        transform.rotation = rotation;
+        _rotation.eulerAngles = new Vector3(_rotateVertical, _rotateHorizontal, transform.rotation.z);
+        transform.rotation = _rotation;
     }
 	
-    public float GetSetRotation
+    public float GetSetRotationHorizontal
     {
-        get { return rotate; }
-        set { rotate = value; }
+        get { return _rotateHorizontal; }
+        set { _rotateHorizontal = value; }
+    }
+
+    public float GetSetRotationVertical
+    {
+        get { return _rotateVertical; }
+        set { _rotateVertical = value; }
     }
 }

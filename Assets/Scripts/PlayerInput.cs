@@ -30,7 +30,8 @@ public class PlayerInput : MonoBehaviour {
             _acceleration = 0;
         }
 
-        steeringBehaviour.GetSetSpeed += _acceleration / 3;
-        playerRotation.GetSetRotation += _moveHorizontal;
+        steeringBehaviour.GetSetSpeed += _acceleration / 4;
+        playerRotation.GetSetRotationHorizontal += _moveHorizontal;
+        playerRotation.GetSetRotationVertical += _moveVertical *-1;
     }
 }
