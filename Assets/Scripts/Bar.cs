@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Bar : MonoBehaviour {
 
+	//replace this with the real health
 	[SerializeField]
 	private HealthDummy health;
 
