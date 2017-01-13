@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour {
 
@@ -8,9 +9,18 @@ public class Timer : MonoBehaviour {
 	private int _minutes;
 	[SerializeField]
 	private int _seconds;
+	[SerializeField]
+	private string timeHolder;
+
+	private Text clockUI;
 
 	void Start (){
 		StartCoroutine (Clock ());
+		clockUI = GetComponent<Text> ();
+	}
+
+	void Update (){
+		clockUI.text = timeHolder;
 	}
 
 	private IEnumerator Clock () {
@@ -21,16 +31,16 @@ public class Timer : MonoBehaviour {
 		if (_seconds > 0) {
 			_seconds -= 1;
 			if (!(_minutes < 10) && _seconds < 10) {
-				print (_minutes + ":" + "0" + _seconds);
+				timeHolder = (_minutes + ":" + "0" + _seconds);
 			}
 			else if (_minutes < 10 && !(_seconds < 10)) {
-				print ("0" + _minutes + ":" + _seconds);
+				timeHolder = ("0" + _minutes + ":" + _seconds);
 			}
 			else if (_minutes < 10 && _seconds < 10){
-				print ("0" + _minutes + ":" + "0" + _seconds);
+				timeHolder = ("0" + _minutes + ":" + "0" + _seconds);
 			}
 			else {
-				print (_minutes + ":" + _seconds);
+				timeHolder = (_minutes + ":" + _seconds);
 			}
 				yield return new WaitForSeconds (1);
 				StartCoroutine (Clock ());
