@@ -80,32 +80,45 @@ public class Cooldown : MonoBehaviour {
 	}
 
 	void Update (){
+		//Start image decrease script
 		if (ability.sprite == used) {
 			ability.fillAmount = 1f / 100f * (100f / cooldownCompare * ship.GetCooldown);
 		}
+		//End image decrease script
 
-		if (Input.GetKeyDown (KeyCode.S)) {
-			pressedClone = true;
+		//Start image reverting script
+		if (ship.GetCooldown < 0.01f) {
+			ability.sprite = unused;
+			ability.fillAmount = 1;
 		}
+		//End image reverting script
 
+		//Start behind cooldown image script
 		if (ability.sprite == used) {
 			cooldownBack.SetActive (true);
 		} else {
 			cooldownBack.SetActive (false);
 		}
+		//End behind cooldown image script
 
+		//Start use script
 		if (Input.GetKeyDown (KeyCode.U)) {
+			pressedClone = true;
 			pressed = true;
 			StartCoroutine (Switcher ());
 		}
+		//End use script
 
+		//Start fading script
 		if (faded.alpha == 0) {
 			pressed = false;
 			StopCoroutine (Switcher ());
 			ability.sprite = used;
 			faded.alpha = 1;
 		}
-			
+		//End fading script
+
+		//Start image sizing script
 		if (pressedClone == true) {
 			if (reached == 0) {
 				if (size.sizeDelta.x < maxWidth && size.sizeDelta.y < maxHeight) {
@@ -136,56 +149,18 @@ public class Cooldown : MonoBehaviour {
 				}
 			}
 		}
-		/*if (reached == 1) {
-				if (size.sizeDelta.x > minWidth && size.sizeDelta.y > minHeight) {
-					size.sizeDelta -= new Vector2 ((Time.deltaTime * sizeSpeed), (Time.deltaTime * sizeSpeed));
-				}
-			}
-			else if(size.sizeDelta.x < startWidth && size.sizeDelta.y < startHeight && reached == 2){
-				size.sizeDelta += new Vector2 ((Time.deltaTime * sizeSpeed), (Time.deltaTime * sizeSpeed));
-			}
-			else {
-				reached = 2;
-			}*/
+		//End image sizing script
 	}
 
+	//Start fading coroutine
 	private IEnumerator Switcher (){
-		while (pressed == true && faded.alpha > 0){
-			faded.alpha -= Time.deltaTime / fadeSpeed;
-			yield return null;
-		}
-	}
-
-	/*private void Larger(){
-		if (pressedClone == true) {
-			if (size.sizeDelta.x < maxWidth && size.sizeDelta.y < maxHeight && reached == false) {
-				size.sizeDelta += new Vector2 ((Time.deltaTime * sizeSpeed), (Time.deltaTime * sizeSpeed));
-			} else {
-				reached = true;
-			}
-		}
-	}
-
-	private IEnumerator Larger(){
-		while (pressedClone == true) {
-			if (size.sizeDelta.x < maxWidth && size.sizeDelta.y < maxHeight && reached == false) {
-				size.sizeDelta += new Vector2 ((Time.deltaTime * sizeSpeed), (Time.deltaTime * sizeSpeed));
-			} else {
-				reached = true;
-				StartCoroutine (Smaller ());
-				StopCoroutine (Larger ());
+		while (pressed == true && faded.alpha > 0) {
+			if (pressedClone == false) {
+				faded.alpha -= Time.deltaTime / fadeSpeed;
 			}
 			yield return null;
 		}
 	}
-
-	private IEnumerator Smaller(){
-		while (reached == true) {
-			if (size.sizeDelta.x < maxWidth && size.sizeDelta.y < maxHeight && reached == true) {
-				size.sizeDelta -= new Vector2 ((Time.deltaTime * sizeSpeed), (Time.deltaTime * sizeSpeed));
-			}
-			yield return null;
-		}
-	}*/
+	//End fading coroutine
 
 }
