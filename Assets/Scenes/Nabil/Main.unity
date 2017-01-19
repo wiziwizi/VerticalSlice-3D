@@ -197,7 +197,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 088aa2429ed74a44aba1be4fa8c973fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthy: 60
+  healthy: 50
+  cooldown: 60
+  cooldownSpeed: 1
 --- !u!1 &196772234
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,6 +273,8 @@ GameObject:
   - component: {fileID: 601545879}
   - component: {fileID: 601545881}
   - component: {fileID: 601545880}
+  - component: {fileID: 601545882}
+  - component: {fileID: 601545883}
   m_Layer: 5
   m_Name: Cooldown
   m_TagString: Untagged
@@ -315,12 +319,12 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b679c5f21efcabb47b6ddcc2723b8a5a, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
-  m_FillAmount: 1
+  m_FillAmount: 0.0016666667
   m_FillClockwise: 1
   m_FillOrigin: 0
 --- !u!222 &601545881
@@ -329,6 +333,41 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 601545878}
+--- !u!114 &601545882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 601545878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca5f74c2335772146a7fe3b625952756, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unused: {fileID: 21300000, guid: d4923136b9a25284caf56343bf62454b, type: 3}
+  used: {fileID: 21300000, guid: 33b0336b662318544abfd1e1c616c3bc, type: 3}
+  fadeSpeed: 1
+  cooldownBack: {fileID: 1454861681}
+  ship: {fileID: 15853828}
+  maxWidth: 120
+  maxHeight: 120
+  minWidth: 80
+  minHeight: 80
+  sizeSpeed: 1
+  startWidth: 0
+  startHeight: 0
+  reached: 0
+--- !u!225 &601545883
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 601545878}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &963516434
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,7 +676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -680,7 +719,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1454861682
 RectTransform:
   m_ObjectHideFlags: 0
@@ -718,7 +757,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 33b0336b662318544abfd1e1c616c3bc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b679c5f21efcabb47b6ddcc2723b8a5a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
