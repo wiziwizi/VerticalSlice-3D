@@ -8,7 +8,7 @@ public class PlayerInput : MonoBehaviour {
     private float _acceleration;
 
     [SerializeField]
-    private SteeringBehaviour steeringBehaviour;
+	private Acceleration speed;
     [SerializeField]
     private PlayerRotation playerRotation;
 
@@ -30,7 +30,7 @@ public class PlayerInput : MonoBehaviour {
             _acceleration = 0;
         }
 
-        steeringBehaviour.GetSetSpeed += _acceleration / 4;
+		speed.GetSetSpeed += _acceleration / 4;
         playerRotation.GetSetRotationHorizontal += _moveHorizontal;
         playerRotation.GetSetRotationVertical += _moveVertical *-1;
     }

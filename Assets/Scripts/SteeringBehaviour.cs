@@ -6,9 +6,7 @@ public class SteeringBehaviour : MonoBehaviour {
 
     [SerializeField]
     private GameObject _targetPoint;
-    private Vector3 _target;
-    [SerializeField]
-    private Vector3 _speed = new Vector3(10, 0, 20); //x = minimal y = current z = maximum
+	private Vector3 _target;
     [SerializeField]
     private float _mass;
     private Vector3 _position = new Vector3();
@@ -16,6 +14,8 @@ public class SteeringBehaviour : MonoBehaviour {
     [SerializeField]
     private List <Vector3> _forces = new List <Vector3>();
     private Vector3 _allForces;
+	[SerializeField]
+	private float _speed;
 
     void FixedUpdate ()
     {
@@ -33,7 +33,7 @@ public class SteeringBehaviour : MonoBehaviour {
         Vector3 desiredStep = _target - _position;
         desiredStep.Normalize();
 
-        Vector3 desiredVelocity = desiredStep * _speed.y;
+        Vector3 desiredVelocity = desiredStep * _speed;
 
         Vector3 steeringForce = desiredVelocity - _velocity;
 
@@ -61,17 +61,10 @@ public class SteeringBehaviour : MonoBehaviour {
         get { return _target; }
     }
 
-    public float GetSetSpeed
-    {
-        set
-        {
-            if (value > _speed.z)
-            {_speed.y = _speed.z;}
-            else if(value < _speed.x)
-            {_speed.y = _speed.x;}
-            else
-            {_speed.y = value;}
-        }
-        get { return _speed.y; }
-    }
+    public float SetSpeed {
+		set
+		{
+			_speed = value;
+		}
+	}
 }
