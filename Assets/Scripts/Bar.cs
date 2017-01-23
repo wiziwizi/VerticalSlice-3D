@@ -7,7 +7,7 @@ public class Bar : MonoBehaviour {
 
 	//replace this with the real health
 	[SerializeField]
-	private HealthDummy health;
+	private float health;
 
 	[SerializeField]
 	private float speed;
@@ -28,18 +28,18 @@ public class Bar : MonoBehaviour {
 	}
 
 	void Update (){
-		if (health.GetHealth / 100 > bar.fillAmount){
-			bar.fillAmount += speed * Time.deltaTime;
+		if (health / 100 > bar.fillAmount){
+			bar.fillAmount += Time.deltaTime / speed;
 		}
-		if (health.GetHealth / 100 < bar.fillAmount){
-			bar.fillAmount -= speed * Time.deltaTime;
+		if (health / 100 < bar.fillAmount){
+			bar.fillAmount -= Time.deltaTime / speed;
 		}
 
-		if (health.GetHealth > healthHolder){
-			healthHolder += percentageSpeed * Time.deltaTime;
+		if (health > healthHolder){
+			healthHolder += Time.deltaTime / percentageSpeed;
 		}
-		if (health.GetHealth < healthHolder){
-			healthHolder -= percentageSpeed * Time.deltaTime;
+		if (health < healthHolder){
+			healthHolder -= Time.deltaTime / percentageSpeed;
 		}
 
 		percentage.text = Mathf.RoundToInt (healthHolder).ToString ();

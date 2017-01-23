@@ -5,77 +5,33 @@ using UnityEngine.UI;
 
 public class Cooldown : MonoBehaviour {
 	
-	//This holds the image that signifies that the ability isn't used.
-	[SerializeField]
-	private Sprite unused;
 
-	//This holds the image that signifies that the ability is used.
-	[SerializeField]
-	private Sprite used;
+	[SerializeField] private Sprite unused; //This holds the image that signifies that the ability isn't used.
+	[SerializeField] private Sprite used; //This holds the image that signifies that the ability is used.
+	[SerializeField] private float fadeSpeed; //This determines the speed at which the image fades.
+	[SerializeField] private GameObject cooldownBack; //This holds the image that is put behind the "used" image.
+	[SerializeField] private Vector3 _width; // Min = x, Start = y, Max = z
+	[SerializeField] private Vector3 _height; // Min = x, Start = y, Max = z
+	[SerializeField] private float sizeSpeed;
+	[SerializeField] private HealthDummy ship; //This gives acces to the object that holds the cooldown script.
 
-	//This determines the speed at which the image fades.
-	[SerializeField]
-	private float fadeSpeed;
-
-	//This holds the Image component.
-	private Image ability;
-
-	//This holds the CanvasGroup.
-	private CanvasGroup faded;
-
-	//This indicates if the button is pressed.
-	private bool pressed;
-
-	//This holds the image that is put behind the "used" image.
-	[SerializeField]
-	private GameObject cooldownBack; 
-
-	//This gives acces to the object that holds the cooldown script.
-	[SerializeField]
-	private HealthDummy ship;
-
-	//This holds the length of the cooldown. So it can compare itself to see if the cooldown is used.
-	private float cooldownCompare;
-
-	//This holds the RectTransform component.
-	private RectTransform size;
-
-	//This indicates if the button is pressed.
-	private bool pressedClone;
-
-	[SerializeField]
-	private float maxWidth;
-
-	[SerializeField]
-	private float maxHeight;
-
-	[SerializeField]
-	private float minWidth;
-
-	[SerializeField]
-	private float minHeight;
-
-	[SerializeField]
-	private float sizeSpeed;
-
-	[SerializeField]
-	private float startWidth;
-
-	[SerializeField]
-	private float startHeight;
-
-	[SerializeField]
+	private Image ability; //This holds the Image component.
+	private CanvasGroup faded; //This holds the CanvasGroup.
+	private bool pressed; //This indicates if the button is pressed.
+	private float cooldownCompare; //This holds the length of the cooldown. So it can compare itself to see if the cooldown is used.
+	private RectTransform size; //This holds the RectTransform component.
+	private bool pressedClone; //This indicates if the button is pressed.
 	private int reached;
+	private bool[] _abillities;
 
 	void Start (){
 		cooldownCompare = ship.GetCooldown;
 		ability = GetComponent<Image> ();
 		faded = GetComponent<CanvasGroup>();
 		ability.sprite = unused;
-		ability.fillAmount = 1;
 		size = GetComponent<RectTransform> ();
-		startWidth = size.sizeDelta.x;
-		startHeight = size.sizeDelta.y;
+		_width.y = size.sizeDelta.x;
+		_height.y = size.sizeDelta.y;
 		reached = 0;
 	}
 
@@ -121,7 +77,7 @@ public class Cooldown : MonoBehaviour {
 		//Start image sizing script
 		if (pressedClone == true) {
 			if (reached == 0) {
-				if (size.sizeDelta.x < maxWidth && size.sizeDelta.y < maxHeight) {
+				if (size.sizeDelta.x < _width.z && size.sizeDelta.y < _height.z) {
 					size.sizeDelta += new Vector2 ((Time.deltaTime * sizeSpeed), (Time.deltaTime * sizeSpeed));
 				} else {
 					reached = 1;
@@ -131,7 +87,7 @@ public class Cooldown : MonoBehaviour {
 
 		if (pressedClone == true) {
 			if (reached == 1) {
-				if (size.sizeDelta.x > minWidth && size.sizeDelta.y > minHeight) {
+				if (size.sizeDelta.x > _width.x && size.sizeDelta.y > _height.x) {
 					size.sizeDelta -= new Vector2 ((Time.deltaTime * sizeSpeed), (Time.deltaTime * sizeSpeed));
 				} else {
 					reached = 2;
@@ -141,7 +97,7 @@ public class Cooldown : MonoBehaviour {
 
 		if (pressedClone == true) {
 			if (reached == 2) {
-				if (size.sizeDelta.x < startWidth && size.sizeDelta.y < startHeight) {
+				if (size.sizeDelta.x < _width.y && size.sizeDelta.y < _height.y) {
 					size.sizeDelta += new Vector2 ((Time.deltaTime * sizeSpeed), (Time.deltaTime * sizeSpeed));
 				} else {
 					reached = 0;
@@ -163,4 +119,12 @@ public class Cooldown : MonoBehaviour {
 	}
 	//End fading coroutine
 
+	public bool[] SetAbility
+	{
+		set
+		{
+			_abillities = value;
+		}
+
+	}
 }

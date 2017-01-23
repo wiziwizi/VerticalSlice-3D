@@ -6,11 +6,14 @@ public class PlayerInput : MonoBehaviour {
     private float _moveHorizontal;
     private float _moveVertical;
     private float _acceleration;
+	private int _abillity;
 
     [SerializeField]
 	private Acceleration speed;
     [SerializeField]
     private PlayerRotation playerRotation;
+	[SerializeField]
+	private Cooldown cooldown;
 
     private void FixedUpdate()
     {
@@ -30,8 +33,17 @@ public class PlayerInput : MonoBehaviour {
             _acceleration = 0;
         }
 
+		if (Input.GetKey (KeyCode.Alpha1))
+		{_abillity = 0;}
+
+		if (Input.GetKey (KeyCode.Alpha2))
+		{_abillity = 1;}
+
+		if (Input.GetKey (KeyCode.Alpha3))
+		{_abillity = 2;}
+
 		speed.GetSetSpeed += _acceleration / 4;
         playerRotation.GetSetRotationHorizontal += _moveHorizontal;
-        playerRotation.GetSetRotationVertical += _moveVertical *-1;
+		playerRotation.GetSetRotationVertical += _moveVertical * -1;
     }
 }
