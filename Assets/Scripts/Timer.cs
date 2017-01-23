@@ -9,7 +9,6 @@ public class Timer : MonoBehaviour {
 	private int _minutes;
 	[SerializeField]
 	private int _seconds;
-	[SerializeField]
 	private string timeHolder;
 
 	private Text clockUI;
