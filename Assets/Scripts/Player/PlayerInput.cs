@@ -36,10 +36,10 @@ public class PlayerInput : MonoBehaviour {
 		if (Input.GetKey (KeyCode.Alpha1))
 		{_abillity = 1;}
 
-		if (Input.GetKey (KeyCode.Alpha2))
+		else if (Input.GetKey (KeyCode.Alpha2))
 		{_abillity = 2;}
 
-		if (Input.GetKey (KeyCode.Alpha3))
+        else if(Input.GetKey (KeyCode.Alpha3))
 		{_abillity = 3;}
         else
         {_abillity = 0;}
