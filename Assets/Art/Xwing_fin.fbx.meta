@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 7f186283580449d40b58b7b763235287
-timeCreated: 1484040392
+guid: 24b8ed0c0685a2247ab35d2e75af62a0
+timeCreated: 1485174860
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: X_Wing1
+    4300000: one_mesh1
   materials:
     importMaterials: 1
     materialName: 0

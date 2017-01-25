@@ -11,8 +11,8 @@ public class PlayerRotation : MonoBehaviour {
 
     void FixedUpdate()
     {
-        _rotation.eulerAngles = new Vector3(_rotateVertical, _rotateHorizontal, transform.rotation.z);
         transform.rotation = _rotation;
+        _rotation.eulerAngles = new Vector3(_rotateVertical, _rotateHorizontal, transform.rotation.z);
     }
 	
     public float GetSetRotationHorizontal
