@@ -37,4 +37,9 @@ public class WayPointTracker : MonoBehaviour {
             _currentWaypoint.transform.position = waypoints[count].transform.position;
         }
     }
+	public int GetCount
+	{
+		get
+		{return count;}
+	}
 }

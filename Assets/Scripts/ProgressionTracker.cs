@@ -6,30 +6,47 @@ using UnityEngine.UI;
 public class ProgressionTracker : MonoBehaviour {
 
 	[SerializeField]
-	private Sprite unTouched;
+	private Sprite touched;
 
 	[SerializeField]
-	private Sprite thouched;
+	private Testing waypoints;
+
+	/*[SerializeField]
+	private WayPointTracker _waypoints;*/
+	[SerializeField]
+	private int currentWaypoint;
+
+	private Vector2 tempSize;
 
 	[SerializeField]
-	private Sprite filled;
-
-	[SerializeField]
-	private Image tracker;
-
-	[SerializeField]
-	private float jumpTo;
+	private float sizeSpeed;
 
 	private int counter;
 
-	List <GameObject> checkPoints = new List<GameObject>();
+	[SerializeField]
+	private float finalSize;
 
-	void Start(){
+	[SerializeField]
+	private RectTransform[] childImage;
 
-		tracker.sprite = unTouched;
+	[SerializeField]
+	private Image[] checkPoints;
+
+	void Update ()
+	{
+
+		counter = waypoints.GetCount;
+
+		if (currentWaypoint != counter) {
+			tempSize = childImage [currentWaypoint].sizeDelta;
+			checkPoints [currentWaypoint].sprite = touched;
+			if (tempSize.x < finalSize && tempSize.y < finalSize) {
+				tempSize += new Vector2 ((Time.fixedDeltaTime / sizeSpeed), (Time.fixedDeltaTime / sizeSpeed));
+				childImage [currentWaypoint].sizeDelta = tempSize;
+			} else {
+				currentWaypoint = counter;
+			}
+		}
 	}
 
-	void Update(){
-		
-	}
 }
