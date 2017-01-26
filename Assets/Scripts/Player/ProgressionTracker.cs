@@ -9,11 +9,8 @@ public class ProgressionTracker : MonoBehaviour {
 	private Sprite touched;
 
 	[SerializeField]
-	private Testing waypoints;
+	private WayPointTracker _waypoints;
 
-	/*[SerializeField]
-	private WayPointTracker _waypoints;*/
-	[SerializeField]
 	private int currentWaypoint;
 
 	private Vector2 tempSize;
@@ -35,7 +32,7 @@ public class ProgressionTracker : MonoBehaviour {
 	void Update ()
 	{
 
-		counter = waypoints.GetCount;
+		counter = _waypoints.GetCount;
 
 		if (currentWaypoint != counter) {
 			tempSize = childImage [currentWaypoint].sizeDelta;
