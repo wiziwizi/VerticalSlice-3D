@@ -1,0 +1,265 @@
+fileFormatVersion: 2
+guid: a4aad0b8b7552114eb5e607fbd85c1b0
+timeCreated: 1485463461
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: CannonRechts
+    100002: group
+    100004: group5
+    100006: group6
+    100008: group7
+    100010: pasted__group3
+    100012: pasted__group5
+    100014: pasted__pasted__Wing_R
+    100016: pasted__pCylinder2
+    100018: pasted__pCylinder2 1
+    100020: pasted__pCylinder4
+    100022: pasted__transform2
+    100024: pasted__Tussen_Stuk
+    100026: pasted__Tussen_Stuk 1
+    100028: pasted__Wing
+    100030: pasted__Wing 1
+    100032: pasted__Wing_R
+    100034: pasted__Wing_R 1
+    100036: pasted__WingLinks
+    100038: pasted__WingLinks 1
+    100040: pCube8
+    100042: pCube8 1
+    100044: pCube9
+    100046: pCube9 1
+    100048: pCylinder2
+    100050: pCylinder2 1
+    100052: //RootNode
+    100054: TIE_Fighter_2:Achter_Buis1
+    100056: TIE_Fighter_2:AchterBuis2
+    100058: TIE_Fighter_2:Achterkant
+    100060: TIE_Fighter_2:CannonLinks
+    100062: TIE_Fighter_2:Details
+    100064: TIE_Fighter_2:MiddenSphere
+    100066: TIE_Fighter_2:pCylinder10
+    100068: TIE_Fighter_2:pCylinder11
+    100070: TIE_Fighter_2:pCylinder4
+    100072: TIE_Fighter_2:pCylinder8
+    100074: TIE_Fighter_2:pCylinder9
+    100076: TIE_Fighter_2:Thingy
+    100078: TIE_Fighter_2:Toottoot
+    100080: TIE_Fighter_2:Voorkant_Raam
+    100082: transform10
+    100084: transform11
+    100086: transform3
+    100088: transform4
+    100090: transform5
+    100092: transform6
+    100094: transform7
+    100096: transform8
+    100098: transform9
+    100100: Tussen_stuk_L
+    100102: Tussen_Stuk_R
+    100104: Tussen_Stuk_R 1
+    100106: WingLinks
+    400000: CannonRechts
+    400002: group
+    400004: group5
+    400006: group6
+    400008: group7
+    400010: pasted__group3
+    400012: pasted__group5
+    400014: pasted__pasted__Wing_R
+    400016: pasted__pCylinder2
+    400018: pasted__pCylinder2 1
+    400020: pasted__pCylinder4
+    400022: pasted__transform2
+    400024: pasted__Tussen_Stuk
+    400026: pasted__Tussen_Stuk 1
+    400028: pasted__Wing
+    400030: pasted__Wing 1
+    400032: pasted__Wing_R
+    400034: pasted__Wing_R 1
+    400036: pasted__WingLinks
+    400038: pasted__WingLinks 1
+    400040: pCube8
+    400042: pCube8 1
+    400044: pCube9
+    400046: pCube9 1
+    400048: pCylinder2
+    400050: pCylinder2 1
+    400052: //RootNode
+    400054: TIE_Fighter_2:Achter_Buis1
+    400056: TIE_Fighter_2:AchterBuis2
+    400058: TIE_Fighter_2:Achterkant
+    400060: TIE_Fighter_2:CannonLinks
+    400062: TIE_Fighter_2:Details
+    400064: TIE_Fighter_2:MiddenSphere
+    400066: TIE_Fighter_2:pCylinder10
+    400068: TIE_Fighter_2:pCylinder11
+    400070: TIE_Fighter_2:pCylinder4
+    400072: TIE_Fighter_2:pCylinder8
+    400074: TIE_Fighter_2:pCylinder9
+    400076: TIE_Fighter_2:Thingy
+    400078: TIE_Fighter_2:Toottoot
+    400080: TIE_Fighter_2:Voorkant_Raam
+    400082: transform10
+    400084: transform11
+    400086: transform3
+    400088: transform4
+    400090: transform5
+    400092: transform6
+    400094: transform7
+    400096: transform8
+    400098: transform9
+    400100: Tussen_stuk_L
+    400102: Tussen_Stuk_R
+    400104: Tussen_Stuk_R 1
+    400106: WingLinks
+    2300000: CannonRechts
+    2300002: pasted__pasted__Wing_R
+    2300004: pasted__pCylinder2
+    2300006: pasted__pCylinder2 1
+    2300008: pasted__pCylinder4
+    2300010: pasted__Wing_R
+    2300012: pCube8
+    2300014: pCube8 1
+    2300016: pCube9
+    2300018: pCube9 1
+    2300020: pCylinder2
+    2300022: pCylinder2 1
+    2300024: TIE_Fighter_2:Achter_Buis1
+    2300026: TIE_Fighter_2:AchterBuis2
+    2300028: TIE_Fighter_2:Achterkant
+    2300030: TIE_Fighter_2:CannonLinks
+    2300032: TIE_Fighter_2:MiddenSphere
+    2300034: TIE_Fighter_2:pCylinder10
+    2300036: TIE_Fighter_2:pCylinder11
+    2300038: TIE_Fighter_2:pCylinder4
+    2300040: TIE_Fighter_2:pCylinder8
+    2300042: TIE_Fighter_2:pCylinder9
+    2300044: TIE_Fighter_2:Thingy
+    2300046: TIE_Fighter_2:Toottoot
+    2300048: TIE_Fighter_2:Voorkant_Raam
+    2300050: Tussen_Stuk_R
+    2300052: Tussen_Stuk_R 1
+    3300000: CannonRechts
+    3300002: pasted__pasted__Wing_R
+    3300004: pasted__pCylinder2
+    3300006: pasted__pCylinder2 1
+    3300008: pasted__pCylinder4
+    3300010: pasted__Wing_R
+    3300012: pCube8
+    3300014: pCube8 1
+    3300016: pCube9
+    3300018: pCube9 1
+    3300020: pCylinder2
+    3300022: pCylinder2 1
+    3300024: TIE_Fighter_2:Achter_Buis1
+    3300026: TIE_Fighter_2:AchterBuis2
+    3300028: TIE_Fighter_2:Achterkant
+    3300030: TIE_Fighter_2:CannonLinks
+    3300032: TIE_Fighter_2:MiddenSphere
+    3300034: TIE_Fighter_2:pCylinder10
+    3300036: TIE_Fighter_2:pCylinder11
+    3300038: TIE_Fighter_2:pCylinder4
+    3300040: TIE_Fighter_2:pCylinder8
+    3300042: TIE_Fighter_2:pCylinder9
+    3300044: TIE_Fighter_2:Thingy
+    3300046: TIE_Fighter_2:Toottoot
+    3300048: TIE_Fighter_2:Voorkant_Raam
+    3300050: Tussen_Stuk_R
+    3300052: Tussen_Stuk_R 1
+    4300000: TIE_Fighter_2:Voorkant_Raam
+    4300002: TIE_Fighter_2:CannonLinks
+    4300004: TIE_Fighter_2:pCylinder4
+    4300006: TIE_Fighter_2:Achterkant
+    4300008: TIE_Fighter_2:Thingy
+    4300010: TIE_Fighter_2:pCylinder10
+    4300012: TIE_Fighter_2:pCylinder9
+    4300014: TIE_Fighter_2:pCylinder8
+    4300016: TIE_Fighter_2:pCylinder11
+    4300018: TIE_Fighter_2:Toottoot
+    4300020: TIE_Fighter_2:AchterBuis2
+    4300022: TIE_Fighter_2:Achter_Buis1
+    4300024: Tussen_Stuk_R
+    4300026: CannonRechts
+    4300028: pasted__pCylinder4
+    4300030: TIE_Fighter_2:MiddenSphere
+    4300032: Tussen_Stuk_R
+    4300034: pasted__Wing_R
+    4300036: pCylinder2
+    4300038: pCylinder2
+    4300040: pCube8
+    4300042: pCube8
+    4300044: pasted__pCylinder2
+    4300046: pasted__pCylinder2
+    4300048: pCube9
+    4300050: pCube9
+    4300052: pasted__pasted__Wing_R
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

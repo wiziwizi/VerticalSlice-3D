@@ -44,7 +44,7 @@ public class PlayerInput : MonoBehaviour {
         else
         {_abillity = 0;}
 
-		speed.GetSetSpeed += _acceleration / 4;
+		speed.GetSetSpeed += _acceleration / 5;
         playerRotation.GetSetRotationHorizontal += _moveHorizontal;
 		playerRotation.GetSetRotationVertical += _moveVertical * -1;
     }

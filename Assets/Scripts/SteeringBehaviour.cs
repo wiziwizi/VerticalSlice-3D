@@ -9,13 +9,18 @@ public class SteeringBehaviour : MonoBehaviour {
 	private Vector3 _target;
     [SerializeField]
     private float _mass;
-    private Vector3 _position = new Vector3();
+    private Vector3 _position;
     private Vector3 _velocity = new Vector3(0,1,0);
     [SerializeField]
     private List <Vector3> _forces = new List <Vector3>();
     private Vector3 _allForces;
 	[SerializeField]
 	private float _speed;
+
+    void Start()
+    {
+        _position = transform.position;
+    }
 
     void FixedUpdate ()
     {

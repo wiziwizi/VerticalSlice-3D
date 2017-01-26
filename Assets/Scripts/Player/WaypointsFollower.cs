@@ -19,11 +19,8 @@ public class WaypointsFollower : MonoBehaviour {
         waypoints.Add(newWaypoint);
     }
 
-    // todo: zorg ervoor dat dit component een lijst met waypoints/Vectors kan bevatten (instelbaar vanuit de editor)
-
     void Start ()
     {
-        // todo: als er al waypoints beschikbaar zijn: ga richting de eerste waypoint
        if(waypoints.Count > 0)
         {
             NextWaypoint();
@@ -36,12 +33,7 @@ public class WaypointsFollower : MonoBehaviour {
         {
             NextWaypoint();
         }
-
-        // todo: checken of we al in de buurt zijn van de eerstvolgende waypoint: zo ja -> ga door naar het volgende waypoint (setTarget() op SteeringVehicle.cs)
-
     }
-	// zorg ervoor dat er een addWayPoint method is
-	
 
     private void NextWaypoint()
     {
