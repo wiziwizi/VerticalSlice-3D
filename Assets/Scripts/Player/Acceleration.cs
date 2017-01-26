@@ -8,7 +8,7 @@ public class Acceleration : MonoBehaviour {
 	private Vector3 _speed = new Vector3(10, 0, 20); //x = minimal y = current z = maximum
 
 	void FixedUpdate () {
-		transform.position += transform.forward * GetSetSpeed * Time.deltaTime;
+		transform.position += transform.forward * GetSetSpeed * Time.fixedDeltaTime;
 	}
 
 	public float GetSetSpeed

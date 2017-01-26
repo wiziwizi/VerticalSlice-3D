@@ -28,15 +28,20 @@ public class Cooldown : MonoBehaviour {
     private float cooldown;
 
     private Image abilitySprite; //This holds the Image component.
+	private Image backSprite;
 	private CanvasGroup faded; //This holds the CanvasGroup.
 	private bool pressed; //This indicates if the button is pressed.
 	private RectTransform size; //This holds the RectTransform component.
 	private bool pressedClone; //This indicates if the button is pressed.
 	private int reached;
     private bool cooldownUsed;
+	private float _startCooldown;
 
-    void Start (){
+    void Start ()
+	{
+		_startCooldown = cooldown;
         abilitySprite = GetComponent<Image> ();
+		backSprite = cooldownBack.GetComponent<Image> ();
 		faded = GetComponent<CanvasGroup>();
         abilitySprite.sprite = unused;
 		size = GetComponent<RectTransform> ();
@@ -50,13 +55,14 @@ public class Cooldown : MonoBehaviour {
 		//Start image reverting script
 		if (cooldown < 0.01f) {
             abilitySprite.sprite = unused;
-            abilitySprite.fillAmount = 1;
+			backSprite.fillAmount = 1;
 		}
 		//End image reverting script
 
 		//Start behind cooldown image script
 		if (abilitySprite.sprite == used) {
-            abilitySprite.fillAmount = 1f / 100f * (100f / cooldown * cooldown);
+			backSprite.fillAmount = 1f / 100f * (100f / _startCooldown * cooldown);
+			abilitySprite.fillAmount = (backSprite.fillAmount - 1) * -1;
             cooldownBack.SetActive (true);
 		} else {
 			cooldownBack.SetActive (false);
@@ -89,7 +95,7 @@ public class Cooldown : MonoBehaviour {
 			if (reached == 0) {
                 if (size.sizeDelta.x < _width.z && size.sizeDelta.y < _height.z)
                 {
-                    size.sizeDelta += new Vector2((Time.deltaTime * sizeSpeed), (Time.deltaTime * sizeSpeed));
+					size.sizeDelta += new Vector2((Time.deltaTime * sizeSpeed), (Time.fixedDeltaTime * sizeSpeed));
                 }
                 else
                 {reached = 1;}
@@ -98,7 +104,7 @@ public class Cooldown : MonoBehaviour {
             {
                 if (size.sizeDelta.x > _width.x && size.sizeDelta.y > _height.x)
                 {
-                    size.sizeDelta -= new Vector2((Time.deltaTime * sizeSpeed), (Time.deltaTime * sizeSpeed));
+					size.sizeDelta -= new Vector2((Time.deltaTime * sizeSpeed), (Time.fixedDeltaTime * sizeSpeed));
                 }
                 else
                 {reached = 2;}
@@ -107,7 +113,7 @@ public class Cooldown : MonoBehaviour {
             {
                 if (size.sizeDelta.x < _width.y && size.sizeDelta.y < _height.y)
                 {
-                    size.sizeDelta += new Vector2((Time.deltaTime * sizeSpeed), (Time.deltaTime * sizeSpeed));
+					size.sizeDelta += new Vector2((Time.deltaTime * sizeSpeed), (Time.fixedDeltaTime * sizeSpeed));
                 }
                 else
                 {
@@ -120,7 +126,7 @@ public class Cooldown : MonoBehaviour {
 
         if (cooldown < 0)
         {
-            cooldown = 60;
+			cooldown = _startCooldown;
             cooldownUsed = false;
         }
     }
@@ -138,7 +144,7 @@ public class Cooldown : MonoBehaviour {
 
     private IEnumerator CooldownCounter(){
 		while (cooldownUsed == true && cooldown > 0){
-			cooldown -= Time.deltaTime / 1;
+			cooldown -= Time.fixedDeltaTime;
 			yield return null;
 		}
 	}
