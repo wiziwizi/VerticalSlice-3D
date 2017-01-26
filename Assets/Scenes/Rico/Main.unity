@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.446579, g: 0.49641326, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -584,7 +584,7 @@ GameObject:
   - component: {fileID: 479796632}
   - component: {fileID: 479796631}
   m_Layer: 5
-  m_Name: accel (2)
+  m_Name: accelBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -979,7 +979,7 @@ GameObject:
   - component: {fileID: 687768770}
   - component: {fileID: 687768769}
   m_Layer: 5
-  m_Name: accel (1)
+  m_Name: accelMiddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1027,7 +1027,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0.63
   m_FillClockwise: 1
   m_FillOrigin: 0
 --- !u!222 &687768770
@@ -1430,6 +1430,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bca264411c7ea3f4fa0f01c6ce17c68a, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &799066822 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114858272412647272, guid: bca264411c7ea3f4fa0f01c6ce17c68a,
+    type: 2}
+  m_PrefabInternal: {fileID: 799066821}
+  m_Script: {fileID: 11500000, guid: 815346a8ba0c6db43900f6523e4548ba, type: 3}
 --- !u!1 &807615233
 GameObject:
   m_ObjectHideFlags: 0
@@ -2158,6 +2164,7 @@ GameObject:
   - component: {fileID: 1172649100}
   - component: {fileID: 1172649102}
   - component: {fileID: 1172649101}
+  - component: {fileID: 1172649103}
   m_Layer: 5
   m_Name: AccelerationTracker
   m_TagString: Untagged
@@ -2220,6 +2227,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1172649099}
+--- !u!114 &1172649103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1172649099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c2548eeecc142a49bee00a17087ec05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _middleImage: {fileID: 687768769}
+  _frontImage: {fileID: 1836000075}
+  acceleration: {fileID: 799066822}
 --- !u!1 &1366564049
 GameObject:
   m_ObjectHideFlags: 0
@@ -2367,12 +2388,12 @@ MonoBehaviour:
   used: {fileID: 21300000, guid: e81cb5427fd7f76489c088d1d2c1a7f5, type: 3}
   fadeSpeed: 2
   cooldownBack: {fileID: 737015601}
-  _width: {x: 40, y: 0, z: 80}
-  _height: {x: 40, y: 0, z: 80}
-  sizeSpeed: 10
+  _width: {x: 50, y: 0, z: 80}
+  _height: {x: 50, y: 0, z: 80}
+  sizeSpeed: 100
   abilityNumber: 2
   _playerInput: {fileID: 811157688}
-  cooldown: 600
+  cooldown: 20
 --- !u!114 &1463962006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2393,13 +2414,13 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 583f9fe3d8fa18447a142359bc055863, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 1
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
 --- !u!222 &1463962007
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2680,12 +2701,12 @@ MonoBehaviour:
   used: {fileID: 21300000, guid: 6700c5961504633488307d68c2455e98, type: 3}
   fadeSpeed: 2
   cooldownBack: {fileID: 963620101}
-  _width: {x: 40, y: 0, z: 80}
-  _height: {x: 40, y: 0, z: 80}
-  sizeSpeed: 10
+  _width: {x: 50, y: 0, z: 80}
+  _height: {x: 50, y: 0, z: 80}
+  sizeSpeed: 100
   abilityNumber: 3
   _playerInput: {fileID: 811157688}
-  cooldown: 600
+  cooldown: 20
 --- !u!114 &1779051948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2706,13 +2727,13 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 2ec43e60fb084b941867246e78a11c07, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 1
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
 --- !u!222 &1779051949
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2793,12 +2814,12 @@ MonoBehaviour:
   used: {fileID: 21300000, guid: ac7091be350b49548bde41c9d5212d61, type: 3}
   fadeSpeed: 2
   cooldownBack: {fileID: 672553019}
-  _width: {x: 40, y: 0, z: 80}
-  _height: {x: 40, y: 0, z: 80}
-  sizeSpeed: 10
+  _width: {x: 50, y: 0, z: 80}
+  _height: {x: 50, y: 0, z: 80}
+  sizeSpeed: 100
   abilityNumber: 1
   _playerInput: {fileID: 811157688}
-  cooldown: 600
+  cooldown: 20
 --- !u!114 &1779615786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2819,13 +2840,13 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 7b93bf7b98fed264bb8e6fe6db7050de, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 1
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
 --- !u!222 &1779615787
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2913,7 +2934,7 @@ GameObject:
   - component: {fileID: 1836000076}
   - component: {fileID: 1836000075}
   m_Layer: 5
-  m_Name: accel
+  m_Name: accelFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2961,7 +2982,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0.55
   m_FillClockwise: 1
   m_FillOrigin: 0
 --- !u!222 &1836000076
