@@ -5,7 +5,8 @@ using UnityEngine;
 public class Health : MonoBehaviour {
 
 	[SerializeField]
-	private float _damage;
+	private float _damage = 15f;
+	[SerializeField]
 	private float _health = 100f;
 	private bool _shield;
 
@@ -14,9 +15,15 @@ public class Health : MonoBehaviour {
 		get {return _shield;}
 		set {_shield = value;}
 	}
-	public float GetHealth
+	public float GetSetHealth
 	{
 		get {return _health;}
+		set {
+			if (value > 90)
+			{_health = 100;}
+			else
+			{_health = value;}
+		}
 	}
 
 	void Update () {

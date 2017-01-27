@@ -12,8 +12,6 @@ public class PlayerInput : MonoBehaviour {
 	private Acceleration speed;
     [SerializeField]
     private PlayerRotation playerRotation;
-	[SerializeField]
-	private Cooldown cooldown;
 
     private void FixedUpdate()
     {

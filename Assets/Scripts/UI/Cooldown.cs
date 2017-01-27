@@ -14,8 +14,9 @@ public class Cooldown : MonoBehaviour {
 	[SerializeField] private Vector3 _height; // Min = x, Start = y, Max = z
 	[SerializeField] private float _sizeSpeed;
     [SerializeField] private int _abilityNumber;
-    [SerializeField] private PlayerInput _playerInput;
+    [SerializeField] private PlayerInput _abilities;
     [SerializeField] private float _cooldown;
+	[SerializeField] private Abillities _ability;
 
     private Image _abilitySprite; //This holds the Image component.
 	private Image _backSprite;
@@ -26,6 +27,11 @@ public class Cooldown : MonoBehaviour {
 	private int _reached;
     private bool _cooldownUsed;
 	private float _startCooldown;
+
+	public bool GetCooldown
+	{
+		get{return _cooldownUsed;}
+	}
 
     void Start ()
 	{
@@ -60,7 +66,7 @@ public class Cooldown : MonoBehaviour {
 		//End behind cooldown image script
 
 		//Start use script
-		if (_playerInput.GetAbility == _abilityNumber)
+		if (_abilities.GetAbility == _abilityNumber)
         {
 			_pressedClone = true;
 			_pressed = true;

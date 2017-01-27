@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyPath : MonoBehaviour {
 	private bool toggle;
-	public WaypointsFollower wp;
+	public WaypointsFollower[] wp;
 
 	void Start()
 	{
@@ -15,8 +15,12 @@ public class EnemyPath : MonoBehaviour {
 	{
 		while(true)
 		{
-		wp.AddWayPoint(transform.position);
-		yield return new WaitForSeconds(0.1f);
+			for (int i = 0; i < wp.Length; i++)
+			{
+				wp[i].AddWayPoint(transform.position);
+			}
+		
+		yield return new WaitForSeconds(0.5f);
 		}
 	}
 }

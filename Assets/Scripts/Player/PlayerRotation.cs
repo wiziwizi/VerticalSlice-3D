@@ -8,6 +8,8 @@ public class PlayerRotation : MonoBehaviour {
     private Quaternion _rotation = Quaternion.identity;
     private float _rotateHorizontal;
     private float _rotateVertical;
+	[SerializeField]
+	private float _maxHeight;
 
     void FixedUpdate()
     {
@@ -18,12 +20,18 @@ public class PlayerRotation : MonoBehaviour {
     public float GetSetRotationHorizontal
     {
         get { return _rotateHorizontal; }
-        set { _rotateHorizontal = value; }
+        set { _rotateHorizontal = value;}
     }
 
     public float GetSetRotationVertical
     {
         get { return _rotateVertical; }
-        set { _rotateVertical = value; }
+        set
+		{
+			if (transform.position.y > _maxHeight)
+			{_rotateVertical -= 0.5f;}
+			else
+			{_rotateVertical = value;}
+		}
     }
 }
