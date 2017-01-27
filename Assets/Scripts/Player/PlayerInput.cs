@@ -8,11 +8,14 @@ public class PlayerInput : MonoBehaviour {
     private float _moveVertical;
     private float _acceleration;
 	private int _abillity;
+    private bool _isFiring;
 
     [SerializeField]
 	private Acceleration speed;
     [SerializeField]
     private PlayerRotation playerRotation;
+    [SerializeField]
+    private Machinegun gun;
 
     public int GetAbility
     {
@@ -31,8 +34,9 @@ public class PlayerInput : MonoBehaviour {
     {
         _moveHorizontal = Input.GetAxis("Horizontal");
         _moveVertical = Input.GetAxis("Vertical");
+        _isFiring = Input.GetMouseButton(0);
 
-        if(Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKey(KeyCode.LeftControl))
         {_acceleration = -1;}
         else if(Input.GetKey(KeyCode.LeftShift))
         {_acceleration = 1;}
@@ -51,7 +55,8 @@ public class PlayerInput : MonoBehaviour {
         {_abillity = 0;}
 
 		speed.GetSetSpeed += _acceleration / 6;
-        playerRotation.GetSetRotationHorizontal += _moveHorizontal;
+        playerRotation.GetSetRotationHorizontal += _moveHorizontal * 1.5f;
 		playerRotation.GetSetRotationVertical += _moveVertical * -1;
+        gun.SetFireRate = _isFiring;
     }
 }

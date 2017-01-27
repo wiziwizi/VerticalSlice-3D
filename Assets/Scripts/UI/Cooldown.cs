@@ -16,7 +16,6 @@ public class Cooldown : MonoBehaviour {
     [SerializeField] private int _abilityNumber;
     [SerializeField] private PlayerInput _abilities;
     [SerializeField] private float _cooldown;
-	[SerializeField] private Abillities _ability;
 
     private Image _abilitySprite; //This holds the Image component.
 	private Image _backSprite;
