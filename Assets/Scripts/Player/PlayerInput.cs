@@ -33,18 +33,18 @@ public class PlayerInput : MonoBehaviour {
             _acceleration = 0;
         }
 
-		if (Input.GetKey (KeyCode.Alpha1))
+		if (Input.GetKeyDown (KeyCode.Alpha1))
 		{_abillity = 1;}
 
-		else if (Input.GetKey (KeyCode.Alpha2))
+		else if (Input.GetKeyDown (KeyCode.Alpha2))
 		{_abillity = 2;}
 
-        else if(Input.GetKey (KeyCode.Alpha3))
+        else if(Input.GetKeyDown (KeyCode.Alpha3))
 		{_abillity = 3;}
         else
         {_abillity = 0;}
 
-		speed.GetSetSpeed += _acceleration / 5;
+		speed.GetSetSpeed += _acceleration / 6;
         playerRotation.GetSetRotationHorizontal += _moveHorizontal;
 		playerRotation.GetSetRotationVertical += _moveVertical * -1;
     }
