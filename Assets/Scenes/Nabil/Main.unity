@@ -125,20 +125,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4664abd3f053ff14b9c50dc52f009749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touched: {fileID: 21300000, guid: 81f3d78cc87114944a271ed1baab4492, type: 3}
+  _touched: {fileID: 0}
   _waypoints: {fileID: 0}
-  sizeSpeed: 0.01
-  finalSize: 13.33333
-  childImage:
-  - {fileID: 1022519635}
-  - {fileID: 434558541}
-  - {fileID: 167751669}
-  - {fileID: 656286401}
-  checkPoints:
-  - {fileID: 1170609945}
-  - {fileID: 1862051706}
-  - {fileID: 582595921}
-  - {fileID: 1092907887}
+  _sizeSpeed: 0
+  _finalSize: 0
+  _childImage: []
+  _checkPoints: []
 --- !u!23 &15853823
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -228,6 +220,7 @@ MonoBehaviour:
   healthy: 50
   cooldown: 60
   cooldownSpeed: 1
+  cooldownUsed: 0
 --- !u!54 &15853829
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -604,16 +597,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f74c2335772146a7fe3b625952756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unused: {fileID: 21300000, guid: d4923136b9a25284caf56343bf62454b, type: 3}
-  used: {fileID: 21300000, guid: 33b0336b662318544abfd1e1c616c3bc, type: 3}
-  fadeSpeed: 1
-  cooldownBack: {fileID: 1454861681}
+  _unused: {fileID: 0}
+  _used: {fileID: 0}
+  _fadeSpeed: 0
+  _cooldownBack: {fileID: 0}
   _width: {x: 0, y: 0, z: 0}
   _height: {x: 0, y: 0, z: 0}
-  sizeSpeed: 10
-  abilityNumber: 0
+  _sizeSpeed: 0
+  _abilityNumber: 0
   _playerInput: {fileID: 0}
-  cooldown: 0
+  _cooldown: 0
 --- !u!225 &601545883
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -857,6 +850,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1166036775991826, guid: 80df5394b39497a409941040d1aa6052, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80df5394b39497a409941040d1aa6052, type: 2}
   m_IsPrefabParent: 0
@@ -939,7 +936,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &987129091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1108,11 +1105,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!224 &1022519635 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 224381761754778562, guid: c1d9d396227ba554cbf4f55dd7a7f669,
-    type: 2}
-  m_PrefabInternal: {fileID: 1289792674}
 --- !u!1 &1092907885
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,12 +1179,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224961074076509912, guid: c1d9d396227ba554cbf4f55dd7a7f669,
     type: 2}
   m_PrefabInternal: {fileID: 1289792674}
---- !u!114 &1170609945 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114185525716384286, guid: c1d9d396227ba554cbf4f55dd7a7f669,
-    type: 2}
-  m_PrefabInternal: {fileID: 1289792674}
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1267193623
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,9 +1228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minutes: 1
   _seconds: 15
-  timerCircle: {fileID: 0}
-  _startTimeInSeconds: 0
-  _currentTimeInSeconds: 0
+  _timerCircle: {fileID: 0}
 --- !u!114 &1267193626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1584,9 +1568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minutes: 0
   _seconds: 20
-  timerCircle: {fileID: 1354419909}
-  _startTimeInSeconds: 0
-  _currentTimeInSeconds: 0
+  _timerCircle: {fileID: 0}
 --- !u!114 &1612427308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1816,11 +1798,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ade273d00aafc134da5483abe7feade9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: NaN
-  speed: 1
-  percentage: {fileID: 1932465885}
-  healthHolder: 0
-  percentageSpeed: 30
+  _health: 0
+  _speed: 0
+  _percentage: {fileID: 0}
+  _healthHolder: 0
+  _percentageSpeed: 0
 --- !u!114 &1936686031
 MonoBehaviour:
   m_ObjectHideFlags: 0
