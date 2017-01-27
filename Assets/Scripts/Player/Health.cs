@@ -8,7 +8,9 @@ public class Health : MonoBehaviour {
 	private float _damage = 15f;
 	[SerializeField]
 	private float _health = 100f;
-	private bool _shield;
+    [SerializeField]
+    private GameObject RestartText;
+    private bool _shield;
 
 	public bool GetSetShield
 	{
@@ -28,12 +30,10 @@ public class Health : MonoBehaviour {
 
 	void Update () {
 		if (_health <= 0)
-		{
-			Death ();
-		}
+		{Death ();}
 	}
 
-	void OnColliderEnter(Collider other)
+	void OnTriggerEnter(Collider other)
 	{
 		if (other.tag == "bullet")
 		{
@@ -43,13 +43,13 @@ public class Health : MonoBehaviour {
 			{_health -= _damage;}
 		}
 		else
-		{
-			Death ();
-		}
+		{Death ();}
 	}
 
 	void Death()
 	{
 		gameObject.SetActive (false);
+        Time.timeScale = 0;
+        RestartText.SetActive(true);
 	}
 }

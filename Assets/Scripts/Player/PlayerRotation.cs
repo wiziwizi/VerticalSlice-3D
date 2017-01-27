@@ -29,7 +29,7 @@ public class PlayerRotation : MonoBehaviour {
         set
 		{
 			if (transform.position.y > _maxHeight)
-			{_rotateVertical -= 0.5f;}
+			{_rotateVertical += 0.5f;}
 			else
 			{_rotateVertical = value;}
 		}
