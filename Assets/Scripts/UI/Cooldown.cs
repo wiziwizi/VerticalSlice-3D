@@ -6,75 +6,65 @@ using UnityEngine.UI;
 public class Cooldown : MonoBehaviour {
 	
 
-	[SerializeField]
-    private Sprite unused; //This holds the image that signifies that the ability isn't used.
-	[SerializeField]
-    private Sprite used; //This holds the image that signifies that the ability is used.
-	[SerializeField]
-    private float fadeSpeed; //This determines the speed at which the image fades.
-	[SerializeField]
-    private GameObject cooldownBack; //This holds the image that is put behind the "used" image.
-	[SerializeField]
-    private Vector3 _width; // Min = x, Start = y, Max = z
-	[SerializeField]
-    private Vector3 _height; // Min = x, Start = y, Max = z
-	[SerializeField]
-    private float sizeSpeed;
-    [SerializeField]
-    private int abilityNumber;
-    [SerializeField]
-    private PlayerInput _playerInput;
-    [SerializeField]
-    private float cooldown;
+	[SerializeField] private Sprite _unused; //This holds the image that signifies that the ability isn't used.
+	[SerializeField] private Sprite _used; //This holds the image that signifies that the ability is used.
+	[SerializeField] private float _fadeSpeed; //This determines the speed at which the image fades.
+	[SerializeField] private GameObject _cooldownBack; //This holds the image that is put behind the "used" image.
+	[SerializeField] private Vector3 _width; // Min = x, Start = y, Max = z
+	[SerializeField] private Vector3 _height; // Min = x, Start = y, Max = z
+	[SerializeField] private float _sizeSpeed;
+    [SerializeField] private int _abilityNumber;
+    [SerializeField] private PlayerInput _playerInput;
+    [SerializeField] private float _cooldown;
 
-    private Image abilitySprite; //This holds the Image component.
-	private Image backSprite;
-	private CanvasGroup faded; //This holds the CanvasGroup.
-	private bool pressed; //This indicates if the button is pressed.
-	private RectTransform size; //This holds the RectTransform component.
-	private bool pressedClone; //This indicates if the button is pressed.
-	private int reached;
-    private bool cooldownUsed;
+    private Image _abilitySprite; //This holds the Image component.
+	private Image _backSprite;
+	private CanvasGroup _faded; //This holds the CanvasGroup.
+	private bool _pressed; //This indicates if the button is pressed.
+	private RectTransform _size; //This holds the RectTransform component.
+	private bool _pressedClone; //This indicates if the button is pressed.
+	private int _reached;
+    private bool _cooldownUsed;
 	private float _startCooldown;
 
     void Start ()
 	{
-		_startCooldown = cooldown;
-        abilitySprite = GetComponent<Image> ();
-		backSprite = cooldownBack.GetComponent<Image> ();
-		faded = GetComponent<CanvasGroup>();
-        abilitySprite.sprite = unused;
-		size = GetComponent<RectTransform> ();
-		_width.y = size.sizeDelta.x;
-		_height.y = size.sizeDelta.y;
-		reached = 0;
+		_startCooldown = _cooldown;
+        _abilitySprite = GetComponent<Image> ();
+		_backSprite = _cooldownBack.GetComponent<Image> ();
+		_faded = GetComponent<CanvasGroup>();
+        _abilitySprite.sprite = _unused;
+		_size = GetComponent<RectTransform> ();
+		_width.y = _size.sizeDelta.x;
+		_height.y = _size.sizeDelta.y;
+		_reached = 0;
 	}
 
 	void Update (){
 		
 		//Start image reverting script
-		if (cooldown < 0.01f) {
-            abilitySprite.sprite = unused;
-			backSprite.fillAmount = 1;
+		if (_cooldown < 0.01f) {
+            _abilitySprite.sprite = _unused;
+			_backSprite.fillAmount = 1;
 		}
 		//End image reverting script
 
 		//Start behind cooldown image script
-		if (abilitySprite.sprite == used) {
-			backSprite.fillAmount = 1f / 100f * (100f / _startCooldown * cooldown);
-			abilitySprite.fillAmount = (backSprite.fillAmount - 1) * -1;
-            cooldownBack.SetActive (true);
+		if (_abilitySprite.sprite == _used) {
+			_backSprite.fillAmount = 1f / 100f * (100f / _startCooldown * _cooldown);
+			_abilitySprite.fillAmount = (_backSprite.fillAmount - 1) * -1;
+            _cooldownBack.SetActive (true);
 		} else {
-			cooldownBack.SetActive (false);
+			_cooldownBack.SetActive (false);
 		}
 		//End behind cooldown image script
 
 		//Start use script
-		if (_playerInput.GetAbility == abilityNumber)
+		if (_playerInput.GetAbility == _abilityNumber)
         {
-			pressedClone = true;
-			pressed = true;
-            cooldownUsed = true;
+			_pressedClone = true;
+			_pressed = true;
+            _cooldownUsed = true;
 
             StartCoroutine (Switcher ());
             StartCoroutine(CooldownCounter());
@@ -82,60 +72,60 @@ public class Cooldown : MonoBehaviour {
 		//End use script
 
 		//Start fading script
-		if (faded.alpha == 0) {
-			pressed = false;
+		if (_faded.alpha == 0) {
+			_pressed = false;
 			StopCoroutine (Switcher ());
-            abilitySprite.sprite = used;
-			faded.alpha = 1;
+            _abilitySprite.sprite = _used;
+			_faded.alpha = 1;
 		}
 		//End fading script
 
 		//Start image sizing script
-		if (pressedClone == true) {
-			if (reached == 0) {
-                if (size.sizeDelta.x < _width.z && size.sizeDelta.y < _height.z)
+		if (_pressedClone == true) {
+			if (_reached == 0) {
+                if (_size.sizeDelta.x < _width.z && _size.sizeDelta.y < _height.z)
                 {
-					size.sizeDelta += new Vector2((Time.deltaTime * sizeSpeed), (Time.fixedDeltaTime * sizeSpeed));
+					_size.sizeDelta += new Vector2((Time.deltaTime * _sizeSpeed), (Time.fixedDeltaTime * _sizeSpeed));
                 }
                 else
-                {reached = 1;}
+                {_reached = 1;}
 		    }
-            if (reached == 1)
+            if (_reached == 1)
             {
-                if (size.sizeDelta.x > _width.x && size.sizeDelta.y > _height.x)
+                if (_size.sizeDelta.x > _width.x && _size.sizeDelta.y > _height.x)
                 {
-					size.sizeDelta -= new Vector2((Time.deltaTime * sizeSpeed), (Time.fixedDeltaTime * sizeSpeed));
+					_size.sizeDelta -= new Vector2((Time.deltaTime * _sizeSpeed), (Time.fixedDeltaTime * _sizeSpeed));
                 }
                 else
-                {reached = 2;}
+                {_reached = 2;}
             }
-            if (reached == 2)
+            if (_reached == 2)
             {
-                if (size.sizeDelta.x < _width.y && size.sizeDelta.y < _height.y)
+                if (_size.sizeDelta.x < _width.y && _size.sizeDelta.y < _height.y)
                 {
-					size.sizeDelta += new Vector2((Time.deltaTime * sizeSpeed), (Time.fixedDeltaTime * sizeSpeed));
+					_size.sizeDelta += new Vector2((Time.deltaTime * _sizeSpeed), (Time.fixedDeltaTime * _sizeSpeed));
                 }
                 else
                 {
-                    reached = 0;
-                    pressedClone = false;
+                    _reached = 0;
+                    _pressedClone = false;
                 }
             }
 		}
         //End image sizing script
 
-        if (cooldown < 0)
+        if (_cooldown < 0)
         {
-			cooldown = _startCooldown;
-            cooldownUsed = false;
+			_cooldown = _startCooldown;
+            _cooldownUsed = false;
         }
     }
 
 	//Start fading coroutine
 	private IEnumerator Switcher (){
-		while (pressed == true && faded.alpha > 0) {
-			if (pressedClone == false) {
-				faded.alpha -= Time.deltaTime / fadeSpeed;
+		while (_pressed == true && _faded.alpha > 0) {
+			if (_pressedClone == false) {
+				_faded.alpha -= Time.deltaTime / _fadeSpeed;
 			}
 			yield return null;
 		}
@@ -143,8 +133,8 @@ public class Cooldown : MonoBehaviour {
 	//End fading coroutine
 
     private IEnumerator CooldownCounter(){
-		while (cooldownUsed == true && cooldown > 0){
-			cooldown -= Time.fixedDeltaTime;
+		while (_cooldownUsed == true && _cooldown > 0){
+			_cooldown -= Time.fixedDeltaTime;
 			yield return null;
 		}
 	}

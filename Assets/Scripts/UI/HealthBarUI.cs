@@ -5,43 +5,33 @@ using UnityEngine.UI;
 
 public class HealthBarUI : MonoBehaviour {
 
-	//replace this with the real health
-	[SerializeField]
-	private float health;
-
-	[SerializeField]
-	private float speed;
+	[SerializeField] private float _health;
+	[SerializeField] private float _speed;
+	[SerializeField] private Text _percentage;
+	[SerializeField] private float _healthHolder;
+	[SerializeField] private float _percentageSpeed;
 
 	private Image bar;
-
-	[SerializeField]
-	private Text percentage;
-
-	[SerializeField]
-	private float healthHolder;
-
-	[SerializeField]
-	private float percentageSpeed;
 
 	void Start (){
 		bar = GetComponent<Image> ();
 	}
 
 	void Update (){
-		if (health / 100 > bar.fillAmount){
-			bar.fillAmount += Time.deltaTime / speed;
+		if (_health / 100 > bar.fillAmount){
+			bar.fillAmount += Time.deltaTime / _speed;
 		}
-		if (health / 100 < bar.fillAmount){
-			bar.fillAmount -= Time.deltaTime / speed;
-		}
-
-		if (health > healthHolder){
-			healthHolder += Time.deltaTime / percentageSpeed;
-		}
-		if (health < healthHolder){
-			healthHolder -= Time.deltaTime / percentageSpeed;
+		if (_health / 100 < bar.fillAmount){
+			bar.fillAmount -= Time.deltaTime / _speed;
 		}
 
-		percentage.text = Mathf.RoundToInt (healthHolder).ToString ();
+		if (_health > _healthHolder){
+			_healthHolder += Time.deltaTime / _percentageSpeed;
+		}
+		if (_health < _healthHolder){
+			_healthHolder -= Time.deltaTime / _percentageSpeed;
+		}
+
+		_percentage.text = Mathf.RoundToInt (_healthHolder).ToString ();
 	}
 }

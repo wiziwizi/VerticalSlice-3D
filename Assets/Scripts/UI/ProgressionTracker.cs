@@ -5,43 +5,29 @@ using UnityEngine.UI;
 
 public class ProgressionTracker : MonoBehaviour {
 
-	[SerializeField]
-	private Sprite touched;
+	[SerializeField] private Sprite _touched;
+	[SerializeField] private WayPointTracker _waypoints;
+	[SerializeField] private float _sizeSpeed;
+	[SerializeField] private float _finalSize;
+	[SerializeField] private RectTransform[] _childImage;
+	[SerializeField] private Image[] _checkPoints;
 
-	[SerializeField]
-	private WayPointTracker _waypoints;
-
-	private int currentWaypoint;
-
-	private Vector2 tempSize;
-
-	[SerializeField]
-	private float sizeSpeed;
-
-	private int counter;
-
-	[SerializeField]
-	private float finalSize;
-
-	[SerializeField]
-	private RectTransform[] childImage;
-
-	[SerializeField]
-	private Image[] checkPoints;
+	private int _currentWaypoint;
+	private Vector2 _tempSize;
+	private int _counter;
 
 	void Update ()
 	{
+		_counter = _waypoints.GetCount;
 
-		counter = _waypoints.GetCount;
-
-		if (currentWaypoint != counter) {
-			tempSize = childImage [currentWaypoint].sizeDelta;
-			checkPoints [currentWaypoint].sprite = touched;
-			if (tempSize.x < finalSize && tempSize.y < finalSize) {
-				tempSize += new Vector2 ((Time.fixedDeltaTime / sizeSpeed), (Time.fixedDeltaTime / sizeSpeed));
-				childImage [currentWaypoint].sizeDelta = tempSize;
+		if (_currentWaypoint != _counter) {
+			_tempSize = _childImage [_currentWaypoint].sizeDelta;
+			_checkPoints [_currentWaypoint].sprite = _touched;
+			if (_tempSize.x < _finalSize && _tempSize.y < _finalSize) {
+				_tempSize += new Vector2 ((Time.fixedDeltaTime / _sizeSpeed), (Time.fixedDeltaTime / _sizeSpeed));
+				_childImage [_currentWaypoint].sizeDelta = _tempSize;
 			} else {
-				currentWaypoint = counter;
+				_currentWaypoint = _counter;
 			}
 		}
 	}

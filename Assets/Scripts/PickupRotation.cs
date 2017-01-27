@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class PickupRotation : MonoBehaviour {
 
-	[SerializeField]
-	private float _rotationSpeed;
+	[SerializeField] private float _rotationSpeed;
 
-	private Transform thing;
+	private Transform _thing;
 
 	void Start(){
-		thing = GetComponent<Transform> ();
+		_thing = GetComponent<Transform> ();
 	}
 
-
 	void Update (){
-		thing.transform.eulerAngles = new Vector3(
-			thing.transform.eulerAngles.x,
-			thing.transform.eulerAngles.y + _rotationSpeed * Time.fixedDeltaTime,
-			thing.transform.eulerAngles.z
+		_thing.transform.eulerAngles = new Vector3(
+			_thing.transform.eulerAngles.x,
+			_thing.transform.eulerAngles.y + _rotationSpeed * Time.fixedDeltaTime,
+			_thing.transform.eulerAngles.z
 		);
 	}
 }
