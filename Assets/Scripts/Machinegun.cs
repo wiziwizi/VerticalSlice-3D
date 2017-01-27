@@ -12,7 +12,7 @@ public class Machinegun : MonoBehaviour
 
     private float _shotCounter;
     [SerializeField]
-    private Transform _shotPoint;
+    private Transform[] _shotPoint;
 
     private void Update ()
     {
@@ -24,8 +24,11 @@ public class Machinegun : MonoBehaviour
             _shotCounter -= Time.deltaTime;
             if (!(_shotCounter <= 0)) return;
             _shotCounter = _fireRate;
-            var newBullet = Instantiate(_bullet, _shotPoint.position, _shotPoint.rotation);
-            newBullet.BulletSpeed = _bulletSpeed;
+			for (int i = 0; i < _shotPoint.Length; i++) {
+				var newBullet = Instantiate(_bullet, _shotPoint[i].position, _shotPoint[i].rotation);
+				newBullet.BulletSpeed = _bulletSpeed;
+			}
+            
         }
         else
         {

@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 4910657304861606}
   - component: {fileID: 198642659433532892}
   - component: {fileID: 199342295702501176}
+  - component: {fileID: 114595578718910856}
   m_Layer: 0
   m_Name: T-65_X-Wing_Starfighter_Blaster
   m_TagString: Untagged
@@ -134,6 +135,18 @@ Transform:
   m_Father: {fileID: 4910657304861606}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114595578718910856
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1930637644375230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c138fc801e28447748d0b06ae0473f14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BulletSpeed: 30
 --- !u!198 &198263600203874140
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -10414,7 +10427,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: b67084b3ed3f0dd40b5a8b569c2e479e, type: 2}
+  - {fileID: 2100000, guid: 0fdc4827fd95f499db9d79ba48fe4c46, type: 2}
   - {fileID: 2100000, guid: b67084b3ed3f0dd40b5a8b569c2e479e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
