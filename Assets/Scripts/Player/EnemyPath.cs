@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyPath : MonoBehaviour {
-	private bool toggle;
-	public WaypointsFollower[] wp;
+    [SerializeField]
+	private bool _toggle;
+    [SerializeField]
+    private WaypointsFollower[] _wayPoints;
+    [SerializeField]
+    private GameObject _ship;
 
 	void Start()
 	{
@@ -13,11 +17,11 @@ public class EnemyPath : MonoBehaviour {
 
 	IEnumerator SpawnWaypoint() 
 	{
-		while(true)
+		while(_toggle)
 		{
-			for (int i = 0; i < wp.Length; i++)
+			for (int i = 0; i < _wayPoints.Length; i++)
 			{
-				wp[i].AddWayPoint(transform.position);
+                _wayPoints[i].AddWayPoint(Instantiate(new GameObject(), _ship.transform.position, Quaternion.identity));
 			}
 		
 		yield return new WaitForSeconds(0.5f);

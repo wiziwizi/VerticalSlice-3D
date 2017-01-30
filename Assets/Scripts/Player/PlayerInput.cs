@@ -23,7 +23,7 @@ public class PlayerInput : MonoBehaviour {
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R))
+        if(Input.GetButtonDown("Submit"))
         {
             Time.timeScale = 1;
             SceneManager.LoadScene(1);
@@ -34,23 +34,17 @@ public class PlayerInput : MonoBehaviour {
     {
         _moveHorizontal = Input.GetAxis("Horizontal");
         _moveVertical = Input.GetAxis("Vertical");
-        _isFiring = Input.GetMouseButton(0);
+        _isFiring = Input.GetButton("Fire1");
+        _acceleration = Input.GetAxis("Acceleration");
 
-        if (Input.GetKey(KeyCode.LeftControl))
-        {_acceleration = -1;}
-        else if(Input.GetKey(KeyCode.LeftShift))
-        {_acceleration = 1;}
-        else
-        {_acceleration = 0;}
-
-		if (Input.GetKeyDown (KeyCode.Alpha1))
+		if (Input.GetButtonDown ("Ability1"))
 		{_abillity = 1;}
 
-		else if (Input.GetKeyDown (KeyCode.Alpha2))
-		{_abillity = 2;}
+		else if (Input.GetButtonDown("Ability2"))
+        { _abillity = 2;}
 
-        else if(Input.GetKeyDown (KeyCode.Alpha3))
-		{_abillity = 3;}
+        else if (Input.GetButtonDown("Ability3"))
+        { _abillity = 3;}
         else
         {_abillity = 0;}
 

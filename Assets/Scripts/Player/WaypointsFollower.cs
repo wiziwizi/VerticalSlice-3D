@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class WaypointsFollower : MonoBehaviour {
 
     [SerializeField]
-    private List<Vector3> waypoints = new List<Vector3>();
+    private List<GameObject> waypoints = new List<GameObject>();
     [SerializeField]
     private SteeringBehaviour steeringBehaviour;
     [SerializeField]
@@ -14,7 +14,7 @@ public class WaypointsFollower : MonoBehaviour {
     private Vector3 waypointDistance;
     private int count;
 
-    public void AddWayPoint(Vector3 newWaypoint)
+    public void AddWayPoint(GameObject newWaypoint)
     {
         waypoints.Add(newWaypoint);
     }
@@ -42,7 +42,7 @@ public class WaypointsFollower : MonoBehaviour {
             return;
         }
 
-        steeringBehaviour.GetSetTarget = waypoints[count];
+        steeringBehaviour.GetSetTarget = waypoints[count].transform.position;
 
         if (isRepeating)
         {

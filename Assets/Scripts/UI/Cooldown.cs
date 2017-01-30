@@ -65,7 +65,7 @@ public class Cooldown : MonoBehaviour {
 		//End behind cooldown image script
 
 		//Start use script
-		if (_abilities.GetAbility == _abilityNumber)
+		if (_abilities.GetAbility == _abilityNumber && !_cooldownUsed)
         {
 			_pressedClone = true;
 			_pressed = true;

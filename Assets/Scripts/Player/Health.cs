@@ -43,10 +43,18 @@ public class Health : MonoBehaviour {
 			{_health -= _damage;}
 		}
 		else
-		{Death ();}
+		{ _health = 0;}
 	}
 
-	void Death()
+    void OnParticleCollision(GameObject other)
+    {
+        if (other.CompareTag("bullet"))
+        {
+            _health -= 15;
+        }
+    }
+
+    void Death()
 	{
 		gameObject.SetActive (false);
         Time.timeScale = 0;
