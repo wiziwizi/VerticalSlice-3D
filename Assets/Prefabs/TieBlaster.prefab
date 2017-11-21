@@ -5607,7 +5607,7 @@ ParticleSystem:
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0.8, b: 0.07058824, a: 1}
+      maxColor: {r: 0.05882353, g: 0.8, b: 0, a: 1}
       minMaxState: 0
     startSize:
       scalar: 0.15
@@ -10427,7 +10427,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0fdc4827fd95f499db9d79ba48fe4c46, type: 2}
+  - {fileID: 2100000, guid: cb3826cd602fdb246a61487fdc2c7b7d, type: 2}
   - {fileID: 2100000, guid: b67084b3ed3f0dd40b5a8b569c2e479e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0

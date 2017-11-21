@@ -46,14 +46,6 @@ public class Health : MonoBehaviour {
 		{ _health = 0;}
 	}
 
-    void OnParticleCollision(GameObject other)
-    {
-        if (other.CompareTag("bullet"))
-        {
-            _health -= 15;
-        }
-    }
-
     void Death()
 	{
 		gameObject.SetActive (false);
